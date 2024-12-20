@@ -1,0 +1,15 @@
+.home-header {
+    background-color: yellow;
+    width: 100%;
+    
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    
+}

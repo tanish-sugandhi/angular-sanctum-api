@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Registration Form</h2>
+    <form #myForm="ngForm" (ngSubmit)="registerProcess()">
+        <!-- Name Field -->
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="data.name" required>
+            @if(errors.name)
+            {
+                <div class="text-danger">
+                     {{errors.name}}
+                </div>
+            }
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" [(ngModel)]="data.email" required>
+            @if(errors.email)
+            {
+                <div class="text-danger">
+                    {{errors.email}}
+                </div>
+            }
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="data.password" required>
+            @if(errors.password)
+            {
+                <div class="text-danger">
+                     {{errors.password}}
+                </div>
+            }
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<div class="form-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="loginProcess()" [formGroup]="formGroup">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" [ngClass]="{
+          'is-invalid': formGroup.get('email')?.invalid && formGroup.get('email')?.touched
+        }" required />
+            <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched" class="text-danger">
+                <span *ngIf="formGroup.get('email')?.errors?.['required']">Email is required.</span>
+                <span *ngIf="formGroup.get('email')?.errors?.['email']">Invalid email format.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" [ngClass]="{
+          'is-invalid':
+            formGroup.get('password')?.invalid && formGroup.get('password')?.touched
+        }" required />
+            <a routerLink="forgotPassword">Forgot Password?</a>
+            <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="text-danger">
+                <small *ngIf="formGroup.get('password')?.errors?.['required']">Password is required.</small>
+            </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="text-danger mt-3">
+            {{ errorMessage }}
+        </div>
+
+        <button type="submit" [disabled]="formGroup.invalid">Login</button>
+    </form>
+    <a class="register" routerLink="register">New Register</a>
+</div>
